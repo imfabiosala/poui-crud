@@ -17,6 +17,7 @@ export class AppComponent {
   }
 
   readonly menus: Array<PoMenuItem> = [
+    { label: 'Fornecedores', icon: 'po-icon-handshake', shortLabel: 'Fornecedores', link: '/vendor/list' },
     { label: 'Sair', action: this.closeApp.bind(this), icon: 'po-icon-exit', shortLabel: 'Sair', link: '#' }
   ];
 
