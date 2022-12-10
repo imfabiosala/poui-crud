@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Sair', action: this.closeApp.bind(this) }
+    { label: 'Sair', action: this.closeApp.bind(this), icon: 'po-icon-exit', shortLabel: 'Sair', link: '#' }
   ];
 
   private closeApp() {
