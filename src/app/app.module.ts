@@ -7,11 +7,13 @@ import { RouterModule } from '@angular/router';
 import { PoTemplatesModule } from '@po-ui/ng-templates';
 import { ProtheusLibCoreModule } from '@totvs/protheus-lib-core';
 import { ListComponent } from './vendor/list/list.component';
+import { FormComponent } from './vendor/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
