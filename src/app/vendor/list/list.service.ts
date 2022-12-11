@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 
 export class ListService {
 
-  public apiUrl: string = 'http://192.168.15.52/rest/api/crm/v1/customerVendor/2/';
+  public apiUrl: string = 'http://192.168.15.52:8282/rest/api/crm/v1/customerVendor/2/';
 
   constructor(private http: HttpClient) { }
 
-  getSupplierList(): Observable<any> {
+  getVendorList(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
 
@@ -37,7 +37,7 @@ export class ListService {
           { value: '3', color: 'color-09', label: 'Cancelado' },
           { value: '4', color: 'color-12', label: 'Pendente' },
           { value: '5', color: 'color-08', label: 'Suspenso' }
-        ] 
+        ]
       }
     ];
   }
