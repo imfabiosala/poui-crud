@@ -32,7 +32,7 @@ export class ListService {
       { property: 'registerSituation', label: 'Situação',
         type: 'label',
         labels: [
-          { value: '1', color: 'color-07', label: 'Inativo' },
+          { value: '1', color: 'color-07', label: 'Bloqueado' },
           { value: '2', color: 'color-11', label: 'Ativo' },
           { value: '3', color: 'color-09', label: 'Cancelado' },
           { value: '4', color: 'color-12', label: 'Pendente' },
