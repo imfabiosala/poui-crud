@@ -7,14 +7,12 @@ import { RouterModule } from '@angular/router';
 import { PoTemplatesModule } from '@po-ui/ng-templates';
 import { ListComponent } from './vendor/list/list.component';
 import { FormComponent } from './vendor/form/form.component';
-import { HomeComponent } from './vendor/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    FormComponent,
-    HomeComponent
+    FormComponent
   ],
   imports: [
     BrowserModule,
