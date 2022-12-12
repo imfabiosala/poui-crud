@@ -1,2 +1,18 @@
 <po-page-default p-title="Fornecedores">
+    
+    <po-dynamic-form #dynamicForm
+        p-auto-focus="code"
+        [p-fields]="fields">
+    </po-dynamic-form>
+
+    <hr>
+
+    <div class="po-row">
+        <po-button
+          class="po-md-1"
+          p-kind ="primary"
+          p-label="Salvar">
+        </po-button>
+    </div>
+  
 </po-page-default>
