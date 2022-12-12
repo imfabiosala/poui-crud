@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 export class ListService {
 
-  public apiUrl: string = 'http://192.168.15.52:8282/rest/api/crm/v1/customerVendor/2/';
+  public apiUrl: string = 'http://imfabiosala.ddns.net:8282/rest/api/crm/v1/customerVendor/2/';
 
   constructor(private http: HttpClient) { }
 
