@@ -183,6 +183,17 @@ export class FormComponent implements OnInit {
     this.vendor.address.city.cityCode          = this.vendorValues.cityCode;
   };
 
+  insertVendor(): void {
+    this.getForm();
+    this.formService.postVendor(JSON.stringify(this.vendor)).pipe(first()).subscribe(() => {
+      this.poNotification.success('Fornecedor cadastrado com sucesso!');
+      this.router.navigate(['vendor/list']);
+    }, err => {
+      let errMsg = JSON.parse(err.error.errMsg);
+      this.poNotification.error(`Ops! Houve um erro. Código: ${errMsg.code}, ${decodeURIComponent(escape(errMsg.message))}, Detalhe: ${decodeURIComponent(escape(errMsg.detailedMessage))}.`)
+    })
+  }
+
   updateVendor(): void {
     this.getForm();
     this.formService.putVendor(this.vendor.code + this.vendor.storeId, JSON.stringify(this.vendor)).pipe(first()).subscribe(() => {

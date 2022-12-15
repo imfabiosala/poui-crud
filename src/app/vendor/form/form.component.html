@@ -10,10 +10,19 @@
 
     <div class="po-row">
         <po-button
-          class="po-md-1"
-          p-kind ="primary"
-          p-label="Salvar"
-          (p-click)="updateVendor()">
+            *ngIf="!this.vendorId"
+            class="po-md-1"
+            p-kind ="primary"
+            p-label="Salvar"
+            (p-click)="insertVendor()">
+        </po-button>
+        
+        <po-button
+            *ngIf="this.vendorId"
+            class="po-md-1"
+            p-kind ="primary"
+            p-label="Salvar"
+            (p-click)="updateVendor()">
         </po-button>
     </div>
   

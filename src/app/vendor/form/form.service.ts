@@ -13,6 +13,10 @@ export class FormService {
 
   constructor(private http: HttpClient) { }
 
+  postVendor(formData: string) {
+    return this.http.post(this.apiUrl, formData)
+  }
+
   getVendor(vendorId: string) {
     return this.http.get<Vendor>(this.apiUrl + `/${this.type}/${vendorId}`);
   }
