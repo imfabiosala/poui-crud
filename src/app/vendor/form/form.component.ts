@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PoDynamicFormField } from '@po-ui/ng-components';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PoDynamicFormField, PoNotificationService } from '@po-ui/ng-components';
+import { Vendor } from '../model/vendor.model';
+import { FormService } from './form.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -9,10 +13,85 @@ import { PoDynamicFormField } from '@po-ui/ng-components';
 
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  vendor: Vendor = new Vendor();
+
+  vendorValues = {
+    type: 2,
+    code: "",
+    storeId: "",
+    shortName: "",
+    name: "",
+    strategicCustomerType: "J",
+    entityType: "J",
+    number: "",
+    address: "",
+    zipCode: "",
+    stateId: "",
+    stateInternalId: "",
+    registerSituation: "1",
+    stateDescription: "",
+    complement: "",
+    district: "",
+    cityCode: "",
+    cityDescription: ""
+  };
+
+  vendorId: string | any;
+
+  constructor(private formService: FormService, private poNotification: PoNotificationService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-  }
+
+    this.vendorValues = {
+      type: 2,
+      code: "",
+      storeId: "",
+      shortName: "",
+      name: "",
+      strategicCustomerType: "J",
+      entityType: "J",
+      number: "",
+      address: "",
+      zipCode: "",
+      stateId: "",
+      stateInternalId: "",
+      registerSituation: "1",
+      stateDescription: "",
+      complement: "",
+      district: "",
+      cityCode: "",
+      cityDescription: ""
+    };
+
+    this.route.paramMap.subscribe(parameters => {
+      this.vendorId = parameters.get('id');
+    });
+
+    if (this.vendorId) {
+      this.fillForm();
+    };
+
+  };
+
+  private fillForm(): void {
+    this.formService.getVendor(this.vendorId).pipe(first()).subscribe((vendor:Vendor) => {
+      this.vendorValues.code = vendor.code;
+      this.vendorValues.storeId = vendor.storeId;
+      this.vendorValues.name = vendor.name;
+      this.vendorValues.shortName = vendor.shortName;
+      this.vendorValues.strategicCustomerType = vendor.strategicCustomerType;
+      this.vendorValues.entityType = vendor.strategicCustomerType;
+      this.vendorValues.type = vendor.type;
+      this.vendorValues.registerSituation = vendor.registerSituation;
+      this.vendorValues.zipCode = vendor.address.zipCode;
+      this.vendorValues.address = vendor.address.address;
+      this.vendorValues.cityCode = vendor.address.city.cityCode;
+      this.vendorValues.cityCode = vendor.address.city.cityDescription;
+      this.vendorValues.cityCode = vendor.address.city.cityInternalId;
+      this.vendorValues.stateId = vendor.address.state.stateId;
+      this.vendorValues.stateId = vendor.address.state.stateInternalId;
+    });
+  };
 
   fields: Array<PoDynamicFormField> = [
     {

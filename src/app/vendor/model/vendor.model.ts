@@ -1,6 +1,6 @@
 import { Address } from "./address.model";
 
-export class Supplier {
+export class Vendor {
     companyInternalId: string;
     code: string;
     name: string;
