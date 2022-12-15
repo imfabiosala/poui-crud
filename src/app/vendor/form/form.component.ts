@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
   fields: Array<PoDynamicFormField> = [
     {
       property: 'code',
-      label: 'CÛdigo',
+      label: 'C√≥digo',
       maxLength: 6
     },
     {
@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
     },
     {
       property: 'name',
-      label: 'Raz„o Social',
+      label: 'Raz√£o Social',
       maxLength: 40
     },
     {
@@ -39,14 +39,14 @@ export class FormComponent implements OnInit {
       property: 'entityType',
       label: 'Tipo',
       options: [
-        { label: 'Fisica', value: 'F' },
-        { label: 'Juridica', value: 'J' },
+        { label: 'F√≠sica', value: 'F' },
+        { label: 'Jur√≠dica', value: 'J' },
         { label: 'Estrangeiro', value: 'X' }
       ]
     },
     {
       property: 'registerSituation',
-      label: 'SituaÁ„o',
+      label: 'Situa√ß√£o',
       options: [
         { label: 'Bloqueado', value: '1' },
         { label: 'Ativo', value: '2' }
@@ -59,7 +59,7 @@ export class FormComponent implements OnInit {
     },
     {
       property: 'address',
-      label: 'EndereÁo'
+      label: 'Endere√ßo'
     },
     {
       property: 'stateId',
@@ -67,29 +67,29 @@ export class FormComponent implements OnInit {
       options: [
         { label: 'Acre', value: 'AC' },
         { label: 'Alagoas', value: 'AL' },
-        { label: 'Amap·', value: 'AP' },
+        { label: 'Amap√°', value: 'AP' },
         { label: 'Amazonas', value: 'AM' },
         { label: 'Bahia', value: 'BA' },
-        { label: 'Cear·', value: 'CE' },
+        { label: 'Cear√°', value: 'CE' },
         { label: 'Distrito Federal', value: 'DF' },
-        { label: 'EspÌrito Santo', value: 'ES' },
-        { label: 'Goi·s', value: 'GO' },
-        { label: 'Maranh„o', value: 'MA' },
+        { label: 'Esp√≠rito Santo', value: 'ES' },
+        { label: 'Goi√°s', value: 'GO' },
+        { label: 'Maranh√£o', value: 'MA' },
         { label: 'Mato Grosso', value: 'MT' },
         { label: 'Mato Grosso do Sul', value: 'MS' },
         { label: 'Minas Gerais', value: 'MG' },
-        { label: 'Par·', value: 'PA' },
-        { label: 'ParaÌba', value: 'PB' },
-        { label: 'Paran·', value: 'PR' },
+        { label: 'Par√°', value: 'PA' },
+        { label: 'Para√≠ba', value: 'PB' },
+        { label: 'Paran√°', value: 'PR' },
         { label: 'Pernambuco', value: 'PE' },
-        { label: 'PiauÌ', value: 'PI' },
+        { label: 'Piau√≠', value: 'PI' },
         { label: 'Rio de Janeiro', value: 'RJ' },
         { label: 'Rio Grande do Norte', value: 'RN' },
         { label: 'Rio Grande do Sul', value: 'RS' },
-        { label: 'RondÙnia', value: 'RO' },
+        { label: 'Rond√¥nia', value: 'RO' },
         { label: 'Roraima', value: 'RR' },
         { label: 'Santa Catarina', value: 'SC' },
-        { label: 'S„o Paulo', value: 'SP' },
+        { label: 'S√£o Paulo', value: 'SP' },
         { label: 'Sergipe', value: 'SE' },
         { label: 'Tocantins', value: 'TO' },
         { label: 'Estrangeiro', value: 'EX' }
@@ -101,8 +101,8 @@ export class FormComponent implements OnInit {
       options: [
         { label: 'Colatina', value: '01506' },
         { label: 'Adolfo', value: '00204' },
-        { label: 'S„o JosÈ do Rio Preto', value: '49805' },
-        { label: 'JosÈ Bonif·cio', value: '25706' },
+        { label: 'S√£o Jos√© do Rio Preto', value: '49805' },
+        { label: 'Jos√© Bonif√°cio', value: '25706' },
         { label: 'Joinville', value: '09102' }
       ]
     }
