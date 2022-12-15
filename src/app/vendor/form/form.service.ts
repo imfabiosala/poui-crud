@@ -13,8 +13,12 @@ export class FormService {
 
   constructor(private http: HttpClient) { }
 
-  getVendor(VendorId: string) {
-    return this.http.get<Vendor>(this.apiUrl + `/${this.type}/${VendorId}`);
+  getVendor(vendorId: string) {
+    return this.http.get<Vendor>(this.apiUrl + `/${this.type}/${vendorId}`);
+  }
+
+  putVendor(vendorId: string, formData: string) {
+    return this.http.put(this.apiUrl + `/${this.type}/${vendorId}`, formData);
   }
   
 }

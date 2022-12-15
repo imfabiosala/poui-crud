@@ -19,20 +19,17 @@ export class FormComponent implements OnInit {
     type: 2,
     code: "",
     storeId: "",
-    shortName: "",
     name: "",
+    shortName: "",
     strategicCustomerType: "J",
-    entityType: "J",
-    number: "",
-    address: "",
+    registerSituation: "1",
     zipCode: "",
+    address: "",
     stateId: "",
     stateInternalId: "",
-    registerSituation: "1",
     stateDescription: "",
-    complement: "",
-    district: "",
     cityCode: "",
+    cityInternalId: "",
     cityDescription: ""
   };
 
@@ -46,20 +43,17 @@ export class FormComponent implements OnInit {
       type: 2,
       code: "",
       storeId: "",
-      shortName: "",
       name: "",
+      shortName: "",
       strategicCustomerType: "J",
-      entityType: "J",
-      number: "",
-      address: "",
+      registerSituation: "1",
       zipCode: "",
+      address: "",
       stateId: "",
       stateInternalId: "",
-      registerSituation: "1",
       stateDescription: "",
-      complement: "",
-      district: "",
       cityCode: "",
+      cityInternalId: "",
       cityDescription: ""
     };
 
@@ -71,26 +65,6 @@ export class FormComponent implements OnInit {
       this.fillForm();
     };
 
-  };
-
-  private fillForm(): void {
-    this.formService.getVendor(this.vendorId).pipe(first()).subscribe((vendor:Vendor) => {
-      this.vendorValues.code = vendor.code;
-      this.vendorValues.storeId = vendor.storeId;
-      this.vendorValues.name = vendor.name;
-      this.vendorValues.shortName = vendor.shortName;
-      this.vendorValues.strategicCustomerType = vendor.strategicCustomerType;
-      this.vendorValues.entityType = vendor.strategicCustomerType;
-      this.vendorValues.type = vendor.type;
-      this.vendorValues.registerSituation = vendor.registerSituation;
-      this.vendorValues.zipCode = vendor.address.zipCode;
-      this.vendorValues.address = vendor.address.address;
-      this.vendorValues.cityCode = vendor.address.city.cityCode;
-      this.vendorValues.cityCode = vendor.address.city.cityDescription;
-      this.vendorValues.cityCode = vendor.address.city.cityInternalId;
-      this.vendorValues.stateId = vendor.address.state.stateId;
-      this.vendorValues.stateId = vendor.address.state.stateInternalId;
-    });
   };
 
   fields: Array<PoDynamicFormField> = [
@@ -115,7 +89,7 @@ export class FormComponent implements OnInit {
       maxLength: 20
     },
     {
-      property: 'entityType',
+      property: 'strategicCustomerType',
       label: 'Tipo',
       options: [
         { label: 'Física', value: 'F' },
@@ -186,5 +160,51 @@ export class FormComponent implements OnInit {
       ]
     }
   ];
+
+  private fillForm(): void {
+    this.formService.getVendor(this.vendorId).pipe(first()).subscribe((vendor:Vendor) => {
+      this.vendorValues.type                  = vendor.type;
+      this.vendorValues.code                  = vendor.code;
+      this.vendorValues.storeId               = vendor.storeId;
+      this.vendorValues.name                  = vendor.name;
+      this.vendorValues.shortName             = vendor.shortName;
+      this.vendorValues.strategicCustomerType = vendor.strategicCustomerType;
+      this.vendorValues.registerSituation     = vendor.registerSituation;
+      this.vendorValues.zipCode               = vendor.address.zipCode;
+      this.vendorValues.address               = vendor.address.address;
+      this.vendorValues.stateId               = vendor.address.state.stateId;
+      this.vendorValues.stateInternalId       = vendor.address.state.stateInternalId;
+      this.vendorValues.stateDescription      = vendor.address.state.stateDescription;
+      this.vendorValues.cityCode              = vendor.address.city.cityCode;
+      this.vendorValues.cityInternalId        = vendor.address.city.cityInternalId;
+      this.vendorValues.cityDescription       = vendor.address.city.cityDescription;
+    });
+  };
+
+  private getForm(): void {
+    this.vendor.type                           = this.vendorValues.type;
+    this.vendor.code                           = this.vendorValues.code;
+    this.vendor.storeId                        = this.vendorValues.storeId;
+    this.vendor.name                           = this.vendorValues.name;
+    this.vendor.shortName                      = this.vendorValues.shortName;
+    this.vendor.strategicCustomerType          = this.vendorValues.strategicCustomerType;
+    this.vendor.registerSituation              = this.vendorValues.registerSituation;
+    this.vendor.address.zipCode                = this.vendorValues.zipCode;
+    this.vendor.address.address                = this.vendorValues.address;
+    this.vendor.address.state.stateId          = this.vendorValues.stateId;
+    this.vendor.address.state.stateInternalId  = this.vendorValues.stateInternalId;
+    this.vendor.address.state.stateDescription = this.vendorValues.stateDescription;
+    this.vendor.address.city.cityCode          = this.vendorValues.cityCode;
+    this.vendor.address.city.cityInternalId    = this.vendorValues.cityInternalId;
+    this.vendor.address.city.cityDescription   = this.vendorValues.cityDescription;
+  };
+
+  updateVendor(): void {
+    this.getForm();
+    this.formService.putVendor(this.vendor.code + this.vendor.storeId, JSON.stringify(this.vendor)).pipe(first()).subscribe(() => {
+      this.poNotification.success('Fornecedor atualizado com sucesso!');
+      this.router.navigate(['/vendor/list']);
+    }, err => this.poNotification.error(err));
+  }
 
 }
