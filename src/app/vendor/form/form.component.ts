@@ -26,11 +26,7 @@ export class FormComponent implements OnInit {
     zipCode: "",
     address: "",
     stateId: "",
-    stateInternalId: "",
-    stateDescription: "",
-    cityCode: "",
-    cityInternalId: "",
-    cityDescription: ""
+    cityCode: ""
   };
 
   vendorId: string | any;
@@ -50,11 +46,7 @@ export class FormComponent implements OnInit {
       zipCode: "",
       address: "",
       stateId: "",
-      stateInternalId: "",
-      stateDescription: "",
-      cityCode: "",
-      cityInternalId: "",
-      cityDescription: ""
+      cityCode: ""
     };
 
     this.route.paramMap.subscribe(parameters => {
@@ -173,11 +165,7 @@ export class FormComponent implements OnInit {
       this.vendorValues.zipCode               = vendor.address.zipCode;
       this.vendorValues.address               = vendor.address.address;
       this.vendorValues.stateId               = vendor.address.state.stateId;
-      this.vendorValues.stateInternalId       = vendor.address.state.stateInternalId;
-      this.vendorValues.stateDescription      = vendor.address.state.stateDescription;
       this.vendorValues.cityCode              = vendor.address.city.cityCode;
-      this.vendorValues.cityInternalId        = vendor.address.city.cityInternalId;
-      this.vendorValues.cityDescription       = vendor.address.city.cityDescription;
     });
   };
 
@@ -192,11 +180,7 @@ export class FormComponent implements OnInit {
     this.vendor.address.zipCode                = this.vendorValues.zipCode;
     this.vendor.address.address                = this.vendorValues.address;
     this.vendor.address.state.stateId          = this.vendorValues.stateId;
-    this.vendor.address.state.stateInternalId  = this.vendorValues.stateInternalId;
-    this.vendor.address.state.stateDescription = this.vendorValues.stateDescription;
     this.vendor.address.city.cityCode          = this.vendorValues.cityCode;
-    this.vendor.address.city.cityInternalId    = this.vendorValues.cityInternalId;
-    this.vendor.address.city.cityDescription   = this.vendorValues.cityDescription;
   };
 
   updateVendor(): void {
