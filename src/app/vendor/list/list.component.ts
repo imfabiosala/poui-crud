@@ -36,4 +36,8 @@ export class ListComponent implements OnInit {
     });
   }
 
+  redirect() {
+    this.router.navigate(['/vendor/new']);
+  }
+
 }
