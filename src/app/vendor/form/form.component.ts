@@ -100,6 +100,7 @@ export class FormComponent implements OnInit {
     {
       property: 'zipCode',
       label: 'CEP',
+      mask: '99999-999',
       maxLength: 9
     },
     {
