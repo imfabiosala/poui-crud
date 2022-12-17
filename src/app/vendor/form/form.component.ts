@@ -63,11 +63,13 @@ export class FormComponent implements OnInit {
     {
       property: 'code',
       label: 'Código',
+      mask: '999999',
       maxLength: 6
     },
     {
       property: 'storeId',
       label: 'Loja',
+      mask: '99',
       maxLength: 2
     },
     {
