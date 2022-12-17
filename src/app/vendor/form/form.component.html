@@ -1,0 +1,29 @@
+<po-page-default p-title="Fornecedores">
+    
+    <po-dynamic-form #dynamicForm
+        p-auto-focus="code"
+        [p-fields]="fields"
+        [p-value]="vendorValues">
+    </po-dynamic-form>
+
+    <hr>
+
+    <div class="po-row">
+        <po-button
+            *ngIf="!this.vendorId"
+            class="po-md-1"
+            p-kind ="primary"
+            p-label="Salvar"
+            (p-click)="insertVendor()">
+        </po-button>
+        
+        <po-button
+            *ngIf="this.vendorId"
+            class="po-md-1"
+            p-kind ="primary"
+            p-label="Salvar"
+            (p-click)="updateVendor()">
+        </po-button>
+    </div>
+  
+</po-page-default>

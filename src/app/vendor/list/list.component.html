@@ -1,0 +1,19 @@
+<po-page-default p-title="Fornecedores">
+
+    <div class="po-row">
+        <po-button
+            class="po-mb-1"
+            p-kind ="primary"
+            p-label="Novo"
+            (p-click)="redirect()">
+        </po-button>
+    </div>
+
+    <po-table
+        p-container="light"
+        [p-columns]="columnTable"
+        [p-items]="vendorList"
+        [p-actions]="actions">
+    </po-table>
+
+</po-page-default>

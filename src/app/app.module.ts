@@ -5,19 +5,25 @@ import { AppComponent } from './app.component';
 import { PoModule } from '@po-ui/ng-components';
 import { RouterModule } from '@angular/router';
 import { PoTemplatesModule } from '@po-ui/ng-templates';
-import { ProtheusLibCoreModule } from '@totvs/protheus-lib-core';
+import { ListComponent } from './vendor/list/list.component';
+import { FormComponent } from './vendor/form/form.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListComponent,
+    FormComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PoModule,
     RouterModule.forRoot([]),
-    PoTemplatesModule,
-    ProtheusLibCoreModule
+    PoTemplatesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
