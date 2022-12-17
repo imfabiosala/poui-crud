@@ -189,4 +189,8 @@ export class FormComponent implements OnInit {
     }, err => this.poNotification.error(err));
   }
 
+  redirect() {
+    this.router.navigate(['/vendor/list']);
+  }
+
 }
