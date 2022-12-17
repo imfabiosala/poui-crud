@@ -3,6 +3,8 @@
     <po-dynamic-form #dynamicForm
         p-auto-focus="code"
         [p-fields]="fields"
+        [p-validate]="this.onChangeFields.bind(this)"
+        [p-validate-fields]="validateFields"
         [p-value]="vendorValues">
     </po-dynamic-form>
 
